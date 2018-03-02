@@ -520,6 +520,8 @@ class Son extends Father
 const a = 10;
 a =20; => throws exception.
 
+https://babeljs.io/learn-es2015/
+
 
 
 
