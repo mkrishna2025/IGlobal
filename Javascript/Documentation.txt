@@ -149,7 +149,7 @@ var person = {
 	lastName: 'Krishna'
 }
 
-Object.keys(person) -> returns keys
+Object.keys(person) -> returns keys in array format
 
 // Accessing a value
 person.firstName
@@ -206,6 +206,13 @@ var x = array.pop(); -> last item is copied to variable and removed
 // Printing an array
 // Approach - 1 
 for(var index = 0; index < array.length ; index++){
+	console.log('index is ' + index);
+	var item = array[index];
+	console.log('item is ' + item);
+}
+
+requirement: skipping first and last element 1, 2, 3, 4, 5 - length = 5
+for(var index = 1; index < array.length - 1 ; index++){
 	console.log('index is ' + index);
 	var item = array[index];
 	console.log('item is ' + item);
@@ -397,6 +404,7 @@ var className = function(optional arguments for constructor){
 	// global variables/methods
 	// private variables/methods
 	
+	// public variables/methods
 	this.
 }
 
@@ -488,6 +496,8 @@ class Calculator
 		return z;
 	}
 }
+var c1 = new Calculator();
+c1.addition(1, 2);
 
 
 class MalePerson{
@@ -517,10 +527,14 @@ class Son extends Father
 	}
 }
 
+// I can access all 3 methods in instances of Son.
+
 const a = 10;
 a =20; => throws exception.
 
 https://babeljs.io/learn-es2015/
+
+
 
 
 

@@ -1,0 +1,109 @@
+class Calculator 
+{
+	addition(x, y){
+		x = x || 0;
+		y = y || 0;
+    	var z = x + y;
+		return z;
+	}
+	
+	subtraction(x, y){
+		x = x || 0;
+		y = y || 0;
+		var z = x - y;
+		return z;
+	}
+}
+var c1 = new Calculator();
+c1.addition(1, 2); => 3
+c1.addition(10); => 10
+
+class Person{
+	getAge(){
+    	return 10;
+	}
+}
+var p1 = new Person();
+p1.getAge();
+
+class MalePerson{
+	static gender(){
+    	return "M";
+	}
+}
+MalePerson.gender();
+
+const x = 20; -> We cant update value again.
+
+// Inheritance Example
+class Father {
+	getGender(){
+    	return "M";
+	}
+	getName(){
+    	return "Venkat";
+	}
+}
+
+class Son extends Father
+{
+	getName(){
+    	return "Rakesh";
+	}
+	getAge(){
+    	return 20;
+	}
+}
+
+var s1 = new Son();
+s1.getGender() => M
+s1.getName() => Rakesh
+s1.getAge() => 20
+
+// constructor pattern
+class Father {
+	constructor(fullName){
+		this.fullName = fullName;
+	}
+	
+	getAge(){
+    	return 10
+	}
+	getGender(){
+    	return 'Male';
+	}
+	getName(){
+		return this.fullName;
+	}
+}
+
+class Son extends Father
+{
+	constructor(fullName){
+		super(fullName);
+	}
+	getAge(){
+    	return 20;
+	}
+}
+
+var s2 = new Son('Kamal Krishna');
+s2.fullName => "Kamal Krishna"
+s2.getName(); => "Kamal Krishna"
+
+function addition1(){
+	console.log(' x is ' + x);
+	var x = 20;
+	console.log(' x after setting is ' + x);
+}
+x will be undefined first
+
+function addition2(){
+	console.log(' x is ' + x);
+	let x = 20;
+	console.log(' x after setting is ' + x);
+}
+Exception occurs that x is not defined
+
+
+
