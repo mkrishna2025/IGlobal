@@ -1,0 +1,14 @@
+Call Back Function
+
+addition(1, 2, function(result) { console.log('result is ' + result); });
+addition(4, 5, function(result) { console.log('addition of x and y is ' + result); });
+
+
+var addition = function(x,y,callBack){
+	var z = x + y;
+	callBack(z);
+}
+
+We pass functions as input parameters, those will be triggered as a callback based on certain logic in called function.
+
+Events

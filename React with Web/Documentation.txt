@@ -1,0 +1,51 @@
+
+TestFramework.createElement('h1', 'Welcome to Demo');
+
+var TestFramework = {
+	createElement: function(elementType, innerHTML){
+		if(elementType == 'h1'){
+			var uiElement = document.createElement('h1');
+			uiElement.innerHTML = innerHTML;
+			return uiElement;
+		}
+	}
+}
+
+React
+2 libraries
+	React
+	ReactDOM
+	
+React.createElement(type of element, attributes of element, innerHTML);
+ReactDOM.render(what to render , where to render);
+ReactDOM.render(React.createElement('h1', 'Welcome to Demo'), document.getElementById('root'));
+
+	babel standard
+ReactDOM.render(<h1>Welcome to demo</h1>, document.getElementById('root'));
+
+
+babel -> converts jsx code to react elements
+JSX Code -> <h1 id='header1'> Welcome to demo </h1>
+Converted code -> React.createElement('h1', { id: 'header1' } , 'Welcome to demo')
+Converted code is going to be rendered and not the jsx code.
+
+HTML vs JSX
+HTML elements are not compiled
+JSX elements are compiled
+HTML elements are rendered directly
+JSX elements are converted to older standard and then old code is rendered.
+
+Creating a component in React
+	Create any class, extend React.Component class and implement the abstract method render.
+
+
+1. local/block variables are accessible by using {variableName}. This is like block level variables. Outside the block, cannot be accessible.
+2. passed in variables are accessible by using {this.props.variableName}
+3. class level variables are created inside constructor. Can be accessible any where inside a class using {this.state.variableName}}
+4. class.defaultProps ... defaultProps are used to set default values for the passed in variables. If value is not passed in, it will be picked from defaultProps
+
+.bind(this) -> we need to pass the scope(which can be static or dynamic) to the method when ever we are calling from render method.
+
+Events - https://www.w3schools.com/jsref/dom_obj_event.asp 
+	
+	
