@@ -1,0 +1,72 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</header>
+<body>
+    <div id="root"></div>
+	<script type="text/babel">
+	
+	const STUDENTS = [
+						{ id: '1', name: 'Neha', age: 20 },
+						{ id: '2', name: 'Karthik', age: 30 },
+						{ id: '3', name: 'Venkat', age: 25 }
+					];
+					
+	class Student extends React.Component{
+		render(){
+			const student = this.props.item;
+			return (
+				<tr>
+					<td>{student.id}</td>
+					<td>{student.name}</td>
+					<td>{student.age}</td>
+				</tr>
+			);
+		}
+	}
+	
+	class Demo extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = {
+				students: STUDENTS,
+				filteredStudents: STUDENTS
+			}
+		}
+		searchBoxChange(event){
+			var str = event.target.value;
+			var items = [];
+			for(var student of this.state.students){
+				if(student.name.toLowerCase().indexOf(str.toLowerCase()) >= 0){
+					items.push(student);
+				}
+			}
+			this.setState({ filteredStudents: items });
+		}
+	
+		render(){
+			return (
+				<div>
+					Welcome to Students.
+					<br/><br/>
+					<input type='text' onChange={this.searchBoxChange.bind(this)} /> Search
+					<table style={{border: 'solid'}}>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Age</th>
+					<tbody>
+						{this.state.filteredStudents.map(item => <Student item={item}>)}
+					</tbody>
+					</table>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<Demo user="Venkat"/>, document.getElementById('root'));
+    </script>
+</body>
+</html>

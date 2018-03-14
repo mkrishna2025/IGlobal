@@ -1,0 +1,50 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</header>
+<body>
+    <div id="root"></div>
+	<script type="text/babel">
+	
+	const COURSES = ['Javascript', 'React', 'React Native', 'Express', 'Node'];
+	
+	class Demo extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = {
+				courses: COURSES,
+				filteredCourses: COURSES
+			}
+		}
+		searchBoxChange(event){
+			var str = event.target.value;
+			var items = [];
+			for(var course of this.state.courses){
+				if(course.toLowerCase().indexOf(str.toLowerCase()) >= 0){
+					items.push(course);
+				}
+			}
+			this.setState({ filteredCourses: items });
+		}
+		
+		render(){
+			return (
+				<div>
+					Welcome to Courses.
+					<br/><br/>
+					<input type='text' onChange={this.searchBoxChange.bind(this)} /> Search
+					<ul>
+						{this.state.filteredCourses.map(item => <li>{item}</li>)}
+					</ul>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<Demo user="Venkat"/>, document.getElementById('root'));
+    </script>
+</body>
+</html>
