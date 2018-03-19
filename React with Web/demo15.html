@@ -1,0 +1,56 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</header>
+<body>
+    <div id="root"></div>
+	<script type="text/babel">
+	
+	class Header extends React.Component{
+		render(){
+			return (
+				<div>Welcome to Demo, {this.props.user}</div>
+			);
+		}
+	}
+	
+	class Footer extends React.Component{
+		render(){
+			return (
+				<div>@Copyright 2008</div>
+			);
+		}
+	}
+	
+	class Master extends React.Component{
+		render(){
+			return (
+				<div>
+					<Header user={this.props.userName} />
+					<br/>
+					{this.props.children}
+					<br/>
+					<Footer />
+				</div>
+			);
+		}
+	}
+	
+	
+	class Demo extends React.Component{
+		render(){
+			return (
+				<Master userName={this.props.userName}>
+					List Of Students
+				</Master>
+			);
+		}
+	}
+	
+	ReactDOM.render(<Demo userName="Deepthi"/>, document.getElementById('root'));
+    </script>
+</body>
+</html>
