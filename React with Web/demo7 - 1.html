@@ -1,0 +1,63 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+</header>
+<body>
+    <div id="root"></div>
+	<script type="text/babel">
+	
+	const COURSES = ['Javascript', 'React', 'React Native', 'Express', 'Node'];
+	
+	class Demo extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = {
+				courses: COURSES,
+				filteredCourses: COURSES,
+				searchStr: ''
+			}
+		}
+		searchBoxChange(event){
+			var str = event.target.value;
+			var items = [];
+			for(var course of this.state.courses){
+				if(course.toLowerCase().indexOf(str.toLowerCase()) >= 0){
+					items.push(course);
+				}
+			}
+			this.setState({ filteredCourses: items });
+		}
+		
+		buttonClick(){
+			var str = this.state.searchStr;
+			var items = [];
+			for(var course of this.state.courses){
+				if(course.toLowerCase().indexOf(str.toLowerCase()) >= 0){
+					items.push(course);
+				}
+			}
+			this.setState({ filteredCourses: items });
+		}
+		
+		render(){
+			return (
+				<div>
+					Welcome to Courses.
+					<br/><br/>
+					<input type='text' onChange={event => this.state.searchStr = event.target.value } />
+					<input type='button' value='Search' onClick={this.buttonClick.bind(this)} />
+					<ul>
+						{this.state.filteredCourses.map(item => <li>{item}</li>)}
+					</ul>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<Demo user="Venkat"/>, document.getElementById('root'));
+    </script>
+</body>
+</html>

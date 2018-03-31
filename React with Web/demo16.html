@@ -1,0 +1,48 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.min.js"></script>
+</header>
+<body>
+    <div id="root"></div>
+	<script type="text/babel">
+	class Test extends React.Component {
+		constructor(props){
+			super(props);
+			this.state ={
+				isEdit: false,
+				user: 'Krisnha',
+				buttonText: 'Edit'
+			}
+		}
+		render(){
+			var userField;
+			if(this.state.isEdit){
+				userField = <input type='text' value={this.state.user} onChange={event => {
+						this.setState({ user: event.target.value })
+					}	
+				} />;
+			} else {
+				userField = <label> {this.state.user} </label>;
+			}
+			return (
+				<div>
+					{userField}
+					<input type="button" value={this.state.buttonText} hidden={!this.props.isAdmin} onClick={event => {
+						if(this.state.isEdit){
+							this.setState({ isEdit: false, buttonText: 'Edit' });
+						} else {
+							this.setState({ isEdit: true, buttonText: 'Save' });
+						}
+						
+					}}/>
+				</div>
+			);
+		}
+	}
+	ReactDOM.render(<Test isAdmin={true}/>, document.getElementById('root'));
+    </script>
+</body>
+</html>
