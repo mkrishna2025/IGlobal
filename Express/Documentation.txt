@@ -1,0 +1,43 @@
+
+
+Node
+	Backend/Process
+	
+Rest API
+	Express
+	Hydra
+
+Java - Spring Boot Micro Services
+Node - Hydra
+
+syntax
+app.httprequest(url, callback);
+callback is executed when URL is entered in browser.
+
+httprequest can be get,post,put,delete
+
+httprequest => all api will serve all the request types 
+
+
+Points
+	All Browser requests are get requests
+	Submiting forms are like post requests
+	
+using ES6
+https://www.npmjs.com/package/esm
+
+npm install -g nodemon
+
+nodemon is a module which will used to restart server if there is change in files.
+
+starting project
+nodemon index.js
+
+// accepting id numbers only and range 5 digit
+app.get('/student/:id([0-9]{5})', function(req, res){
+   res.send('id: ' + req.params.id);
+});
+
+https://expressjs.com/en/starter/generator.html
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/skeleton_website
+
